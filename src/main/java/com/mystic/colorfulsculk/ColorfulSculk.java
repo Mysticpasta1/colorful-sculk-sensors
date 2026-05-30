@@ -1,5 +1,6 @@
 package com.mystic.colorfulsculk;
 
+import com.mystic.colorfulsculk.init.BlockEntityInit;
 import com.mystic.colorfulsculk.init.BlockInit;
 import com.mystic.colorfulsculk.init.ItemInit;
 import com.mystic.colorfulsculk.init.SculkTabs;
@@ -42,6 +43,7 @@ public class ColorfulSculk {
         IEventBus bus = context.getModEventBus();
         BlockInit.init(bus);
         ItemInit.init(bus);
+        BlockEntityInit.init(bus);
         SculkTabs.init(bus);
         bus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
@@ -51,8 +53,6 @@ public class ColorfulSculk {
         event.enqueueWork(() -> {
             BlockEntityType.SCULK_SHRIEKER.validBlocks = new HashSet<>(BlockEntityType.SCULK_SHRIEKER.validBlocks);
             BlockEntityType.SCULK_SHRIEKER.validBlocks.addAll(Arrays.asList(getShriekerBlocks()));
-            BlockEntityType.SCULK_CATALYST.validBlocks = new HashSet<>(BlockEntityType.SCULK_CATALYST.validBlocks);
-            BlockEntityType.SCULK_CATALYST.validBlocks.addAll(Arrays.asList(getCatalystBlocks()));
             BlockEntityType.SCULK_SENSOR.validBlocks = new HashSet<>(BlockEntityType.SCULK_SENSOR.validBlocks);
             BlockEntityType.SCULK_SENSOR.validBlocks.addAll(Arrays.asList(getSensorBlocks()));
         });

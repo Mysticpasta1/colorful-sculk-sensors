@@ -34,7 +34,7 @@ public class ColoredSculkSensorBlockEntity extends SculkSensorBlockEntity {
         @Override
         public void onReceiveVibration(ServerLevel level, BlockPos pos, GameEvent event, @Nullable Entity entity, @Nullable Entity projectileOwner, float distance) {
             BlockState blockstate = getBlockState();
-            if (SculkSensorBlock.canActivate(blockstate)) {
+            if (ColoredSculkSensorBlock.canActivate(blockstate)) {
                 Block block = blockstate.getBlock();
                 if (!(block instanceof ColoredSculkSensorBlock coloredBlock)) {
                     return;
